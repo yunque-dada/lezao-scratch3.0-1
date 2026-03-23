@@ -24,7 +24,8 @@ app.get('/api/test', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
 
-app.listen(PORT, () => {
-  console.log(`服务器运行在端口 ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`服务器运行在 http://localhost:${PORT} 和 http://0.0.0.0:${PORT}`);
 });
