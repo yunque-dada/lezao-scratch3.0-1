@@ -73,7 +73,7 @@ const MainLayout = ({ children, collapsed, onCollapse }) => {
     }] : []),
     ...(isAdmin || user?.role === 'teacher' ? [{
       key: '/admin/courses',
-      icon: <BookAddOutlined />,
+      icon: <BookOutlined />,
       label: <Link to="/admin/courses">课程管理</Link>
     }] : []),
     ...(isAdmin || user?.role === 'teacher' ? [{
