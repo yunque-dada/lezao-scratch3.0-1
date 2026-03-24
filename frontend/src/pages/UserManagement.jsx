@@ -186,7 +186,7 @@ const UserManagement = () => {
             <Select>
               <Option value="student">学生</Option>
               <Option value="teacher">老师</Option>
-              <Option value="admin">管理�?/Option>
+              <Option value="admin">管理员</Option>
             </Select>
           </Form.Item>
           <Form.Item>
