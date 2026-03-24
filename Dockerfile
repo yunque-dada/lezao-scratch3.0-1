@@ -2,11 +2,13 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY backend/package*.json ./
+COPY frontend/package*.json ./
 RUN npm install
 
-COPY backend/ ./
+COPY frontend/ ./
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["npm", "start"]
+EXPOSE 5173
+
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "5173"]
