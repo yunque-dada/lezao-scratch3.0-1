@@ -2,11 +2,13 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# 复制 frontend 目录中的 package 文件
-COPY frontend/package*.json ./frontend/
+# 先复制整个项目
+COPY . .
+
+# 进入 frontend 目录
+WORKDIR /app/frontend
 
 # 安装依赖
-WORKDIR /app/frontend
 RUN npm install
 
 # 构建
