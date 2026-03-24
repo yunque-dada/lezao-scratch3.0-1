@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/database');
 const createIndexes = require('./config/indexes');
+const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 
 const app = express();
 
@@ -38,6 +39,10 @@ app.get('/api/test', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// 错误处理
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 const HOST = '0.0.0.0';
