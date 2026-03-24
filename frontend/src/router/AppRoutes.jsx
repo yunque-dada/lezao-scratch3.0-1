@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 
 // 页面组件
 import Login from '../pages/Login';
-import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import CourseList from '../pages/CourseList';
 import CourseDetail from '../pages/CourseDetail';
@@ -45,14 +44,6 @@ const AppRoutes = () => {
           element={
             <PublicRoute>
               <Login />
-            </PublicRoute>
-          } 
-        />
-        <Route 
-          path="/register" 
-          element={
-            <PublicRoute>
-              <Register />
             </PublicRoute>
           } 
         />
