@@ -1,7 +1,8 @@
 /**
- * 课程管理页面 - 老师/管理�? */
-import { API_CONFIG } from '../utils/apiConfig';
+ * 课程管理页面 - 老师/管理�? */
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { API_CONFIG } from '../utils/apiConfig';
 import { 
   Table, Button, Modal, Form, Input, Select, 
   message, Popconfirm, Space, Tag, Card, Row, Col 
@@ -102,16 +103,16 @@ const CourseManagement = () => {
     { title: '课程名称', dataIndex: 'title', key: 'title', width: 200 },
     { title: '描述', dataIndex: 'description', key: 'description', ellipsis: true },
     { 
-      title: '状�?, 
+      title: '状�?, 
       dataIndex: 'status', 
       key: 'status',
       render: (status) => (
         <Tag color={status === 'published' ? 'green' : 'orange'}>
-          {status === 'published' ? '已发�? : '草稿'}
+          {status === 'published' ? '已发�? : '草稿'}
         </Tag>
       )
     },
-    { title: '章节�?, dataIndex: 'chapters', key: 'chapters', 
+    { title: '章节�?, dataIndex: 'chapters', key: 'chapters', 
       render: (chs) => chs?.length || 0 
     },
     { title: '创建时间', dataIndex: 'createdAt', key: 'createdAt', 
@@ -186,10 +187,10 @@ const CourseManagement = () => {
             <Input />
           </Form.Item>
           {editingCourse && (
-            <Form.Item name="status" label="状�?>
+            <Form.Item name="status" label="状�?>
               <Select>
                 <Option value="draft">草稿</Option>
-                <Option value="published">已发�?/Option>
+                <Option value="published">已发�?/Option>
               </Select>
             </Form.Item>
           )}
