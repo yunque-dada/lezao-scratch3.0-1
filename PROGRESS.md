@@ -88,6 +88,7 @@
 
 ### 2.2 前端基础架构
 - [2.2.1] ✅ 项目结构搭建 - frontend/redux/router/pages
+- [2.2.2] ✅ 基础组件 - MainLayout/AppLayout/主题
 
 - **时间估计**：5天
 - **负责角色**：前端开发
