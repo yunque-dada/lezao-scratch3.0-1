@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const compression = require('compression');
 const connectDB = require('./config/database');
 const createIndexes = require('./config/indexes');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
@@ -9,6 +10,7 @@ const app = express();
 
 // 中间件
 app.use(cors());
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
