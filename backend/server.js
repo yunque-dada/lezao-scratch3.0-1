@@ -9,7 +9,10 @@ const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 const app = express();
 
 // 中间件
-app.use(cors());
+app.use(cors({
+  origin: ['https://lezao.up.railway.app', 'http://localhost:5173'],
+  credentials: true
+}));
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
