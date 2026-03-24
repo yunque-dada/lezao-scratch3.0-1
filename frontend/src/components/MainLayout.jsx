@@ -8,6 +8,7 @@ import {
   BookOutlined, 
   FileOutlined, 
   UserOutlined,
+  TeamOutlined,
   LogoutOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined
@@ -23,6 +24,8 @@ const MainLayout = ({ children, collapsed, onCollapse }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+
+  const isAdmin = user?.role === 'admin';
 
   const handleLogout = () => {
     dispatch(logout());
@@ -60,7 +63,12 @@ const MainLayout = ({ children, collapsed, onCollapse }) => {
       key: '/works',
       icon: <FileOutlined />,
       label: <Link to="/works">我的作品</Link>
-    }
+    },
+    ...(isAdmin ? [{
+      key: '/admin/users',
+      icon: <TeamOutlined />,
+      label: <Link to="/admin/users">用户管理</Link>
+    }] : [])
   ];
 
   return (

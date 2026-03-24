@@ -19,10 +19,12 @@ connectDB().then(() => {
 
 // 路由
 const userRoutes = require('./routes/userRoutes');
+const adminUserRoutes = require('./routes/adminUserRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const workRoutes = require('./routes/workRoutes');
 
 app.use('/api/auth', userRoutes);
+app.use('/api/admin/users', adminUserRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/works', workRoutes);
 
