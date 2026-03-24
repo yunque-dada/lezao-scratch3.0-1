@@ -14,10 +14,44 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 连接数据库
+// 连接数据库并初始化
 connectDB().then(() => {
   createIndexes();
+  initializeDefaultAdmin();
 });
+
+// 初始化默认管理员用户
+async function initializeDefaultAdmin() {
+  try {
+    const User = require('./models/User');
+    
+    // 检查是否已有用户
+    const userCount = await User.countDocuments();
+    
+    if (userCount === 0) {
+      console.log('🆕 数据库为空，创建默认管理员用户...');
+      
+      const defaultAdmin = new User({
+        username: 'admin',
+        email: 'admin@lezhao.com',
+        password: 'admin123',
+        role: 'admin',
+        nickname: '管理员'
+      });
+      
+      await defaultAdmin.save();
+      
+      console.log('✅ 默认管理员创建成功!');
+      console.log('   用户名: admin');
+      console.log('   密码: admin123');
+      console.log('   角色: admin');
+    } else {
+      console.log(`📊 数据库已有 ${userCount} 个用户`);
+    }
+  } catch (error) {
+    console.error('❌ 初始化默认管理员失败:', error.message);
+  }
+}
 
 // 路由
 const userRoutes = require('./routes/userRoutes');
