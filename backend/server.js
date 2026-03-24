@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/database');
+const createIndexes = require('./config/indexes');
 
 const app = express();
 
@@ -10,7 +12,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 连接数据库
-connectDB();
+connectDB().then(() => {
+  createIndexes();
+});
 
 // 路由
 const userRoutes = require('./routes/userRoutes');
