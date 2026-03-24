@@ -1,6 +1,5 @@
 /**
- * Scratch作品编辑器页面
- */
+ * Scratch作品编辑器页�? */
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -20,7 +19,7 @@ const ScratchEditorPage = () => {
     const loadProject = async () => {
       if (id && id !== 'new') {
         try {
-          const response = await fetch(`http://localhost:3000/api/works/${id}`, {
+          const response = await fetch(`https://lezao-houduan.up.railway.app/api/works/${id}`, {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           const data = await response.json();
@@ -47,7 +46,7 @@ const ScratchEditorPage = () => {
     setSaving(true);
     try {
       const workData = {
-        title: projectData.projectName || '未命名作品',
+        title: projectData.projectName || '未命名作�?,
         fileUrl: projectData.file || '',
         coverUrl: projectData.cover || '',
         course: null,
@@ -55,8 +54,8 @@ const ScratchEditorPage = () => {
       };
 
       const url = id && id !== 'new' 
-        ? `http://localhost:3000/api/works/${id}`
-        : 'http://localhost:3000/api/works';
+        ? `https://lezao-houduan.up.railway.app/api/works/${id}`
+        : 'https://lezao-houduan.up.railway.app/api/works';
       
       const method = id && id !== 'new' ? 'PUT' : 'POST';
 
@@ -96,7 +95,7 @@ const ScratchEditorPage = () => {
 
   return (
     <div style={{ height: 'calc(100vh - 100px)', display: 'flex', flexDirection: 'column' }}>
-      {/* 顶部工具栏 */}
+      {/* 顶部工具�?*/}
       <Card size="small" style={{ marginBottom: 16 }}>
         <Space>
           <Button icon={<ArrowLeftOutlined />} onClick={() => navigate('/works')}>
@@ -112,12 +111,12 @@ const ScratchEditorPage = () => {
               window.dispatchEvent(event);
             }}
           >
-            {saving ? '保存中...' : '保存作品'}
+            {saving ? '保存�?..' : '保存作品'}
           </Button>
         </Space>
       </Card>
 
-      {/* Scratch编辑器区域 */}
+      {/* Scratch编辑器区�?*/}
       <div style={{ flex: 1, overflow: 'hidden' }}>
         <ScratchEditor
           projectId={id}

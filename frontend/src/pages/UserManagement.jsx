@@ -1,6 +1,5 @@
 /**
- * 用户管理页面 - 管理员
- */
+ * 用户管理页面 - 管理�? */
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { 
@@ -28,7 +27,7 @@ const UserManagement = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/admin/users?page=${page}&limit=10`,
+        `https://lezao-houduan.up.railway.app/api/admin/users?page=${page}&limit=10`,
         {
           headers: { 'Authorization': `Bearer ${token}` }
         }
@@ -63,7 +62,7 @@ const UserManagement = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:3000/api/admin/users/${id}`, {
+      await fetch(`https://lezao-houduan.up.railway.app/api/admin/users/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -77,8 +76,8 @@ const UserManagement = () => {
   const handleSubmit = async (values) => {
     try {
       const url = editingUser 
-        ? `http://localhost:3000/api/admin/users/${editingUser._id}`
-        : 'http://localhost:3000/api/admin/users';
+        ? `https://lezao-houduan.up.railway.app/api/admin/users/${editingUser._id}`
+        : 'https://lezao-houduan.up.railway.app/api/admin/users';
       const method = editingUser ? 'PUT' : 'POST';
 
       await fetch(url, {
@@ -99,7 +98,7 @@ const UserManagement = () => {
   };
 
   const columns = [
-    { title: '用户名', dataIndex: 'username', key: 'username' },
+    { title: '用户�?, dataIndex: 'username', key: 'username' },
     { title: '昵称', dataIndex: 'nickname', key: 'nickname' },
     { title: '邮箱', dataIndex: 'email', key: 'email' },
     { 
@@ -108,7 +107,7 @@ const UserManagement = () => {
       key: 'role',
       render: (role) => (
         <Tag color={role === 'admin' ? 'red' : role === 'teacher' ? 'blue' : 'green'}>
-          {role === 'admin' ? '管理员' : role === 'teacher' ? '老师' : '学生'}
+          {role === 'admin' ? '管理�? : role === 'teacher' ? '老师' : '学生'}
         </Tag>
       )
     },
@@ -169,7 +168,7 @@ const UserManagement = () => {
         footer={null}
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
-          <Form.Item name="username" label="用户名" rules={[{ required: true }]}>
+          <Form.Item name="username" label="用户�? rules={[{ required: true }]}>
             <Input disabled={!!editingUser} />
           </Form.Item>
           <Form.Item name="email" label="邮箱" rules={[{ required: true, type: 'email' }]}>
@@ -187,7 +186,7 @@ const UserManagement = () => {
             <Select>
               <Option value="student">学生</Option>
               <Option value="teacher">老师</Option>
-              <Option value="admin">管理员</Option>
+              <Option value="admin">管理�?/Option>
             </Select>
           </Form.Item>
           <Form.Item>

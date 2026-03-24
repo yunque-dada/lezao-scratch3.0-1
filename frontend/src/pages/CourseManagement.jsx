@@ -1,7 +1,6 @@
 /**
- * 课程管理页面 - 老师/管理员
- */
-import React, { useState, useEffect } from 'react';
+ * 课程管理页面 - 老师/管理�? */
+import { API_CONFIG } from '../utils/apiConfig';
 import { useSelector } from 'react-redux';
 import { 
   Table, Button, Modal, Form, Input, Select, 
@@ -29,7 +28,7 @@ const CourseManagement = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/courses?page=${page}&limit=10&status=all`,
+        `https://lezao-houduan.up.railway.app/api/courses?page=${page}&limit=10&status=all`,
         {
           headers: { 'Authorization': `Bearer ${token}` }
         }
@@ -64,7 +63,7 @@ const CourseManagement = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:3000/api/courses/${id}`, {
+      await fetch(`https://lezao-houduan.up.railway.app/api/courses/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -78,8 +77,8 @@ const CourseManagement = () => {
   const handleSubmit = async (values) => {
     try {
       const url = editingCourse 
-        ? `http://localhost:3000/api/courses/${editingCourse._id}`
-        : 'http://localhost:3000/api/courses';
+        ? `https://lezao-houduan.up.railway.app/api/courses/${editingCourse._id}`
+        : 'https://lezao-houduan.up.railway.app/api/courses';
       const method = editingCourse ? 'PUT' : 'POST';
 
       await fetch(url, {
@@ -103,16 +102,16 @@ const CourseManagement = () => {
     { title: '课程名称', dataIndex: 'title', key: 'title', width: 200 },
     { title: '描述', dataIndex: 'description', key: 'description', ellipsis: true },
     { 
-      title: '状态', 
+      title: '状�?, 
       dataIndex: 'status', 
       key: 'status',
       render: (status) => (
         <Tag color={status === 'published' ? 'green' : 'orange'}>
-          {status === 'published' ? '已发布' : '草稿'}
+          {status === 'published' ? '已发�? : '草稿'}
         </Tag>
       )
     },
-    { title: '章节数', dataIndex: 'chapters', key: 'chapters', 
+    { title: '章节�?, dataIndex: 'chapters', key: 'chapters', 
       render: (chs) => chs?.length || 0 
     },
     { title: '创建时间', dataIndex: 'createdAt', key: 'createdAt', 
@@ -187,10 +186,10 @@ const CourseManagement = () => {
             <Input />
           </Form.Item>
           {editingCourse && (
-            <Form.Item name="status" label="状态">
+            <Form.Item name="status" label="状�?>
               <Select>
                 <Option value="draft">草稿</Option>
-                <Option value="published">已发布</Option>
+                <Option value="published">已发�?/Option>
               </Select>
             </Form.Item>
           )}
