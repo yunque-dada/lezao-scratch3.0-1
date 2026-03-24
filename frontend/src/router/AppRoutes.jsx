@@ -17,6 +17,7 @@ const WorkEditor = lazy(() => import('../pages/WorkEditor'));
 const UserManagement = lazy(() => import('../pages/UserManagement'));
 const CourseManagement = lazy(() => import('../pages/CourseManagement'));
 const WorkManagement = lazy(() => import('../pages/WorkManagement'));
+const ScratchEditorPage = lazy(() => import('../pages/ScratchEditorPage'));
 
 // 加载中组件
 const Loading = () => (
@@ -118,7 +119,7 @@ const AppRoutes = () => {
             element={
               <ProtectedRoute>
                 <LayoutWrapper>
-                  <WorkEditor />
+                  <ScratchEditorPage />
                 </LayoutWrapper>
               </ProtectedRoute>
             } 
