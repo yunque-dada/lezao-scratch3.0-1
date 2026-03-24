@@ -49,6 +49,7 @@
 
 ### 2.1 后端基础架构
 - [2.1.1] ✅ 项目结构搭建 - backend/models/routes/middleware
+- [2.1.2] ✅ 数据库连接 - backend/config/indexes.js
 
 ## 二、核心功能开发阶段
 

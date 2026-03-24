@@ -97,4 +97,20 @@ router.put('/profile', auth, async (req, res) => {
   }
 });
 
+// 刷新令牌
+router.post('/refresh-token', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ message: '用户不存在' });
+    }
+    
+    const token = generateToken(user._id, user.role);
+    
+    res.json({ token });
+  } catch (error) {
+    res.status(500).json({ message: '刷新令牌失败', error: error.message });
+  }
+});
+
 module.exports = router;
