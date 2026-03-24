@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
       },
       // 开启gzip压缩
       compressOnAdd: true,
-      minify: 'terser',
+      minify: 'esbuild',
       sourcemap: false,
       // 分块大小警告限制
       chunkSizeWarningLimit: 1500
