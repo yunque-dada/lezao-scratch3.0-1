@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/lezhao-scratch';
+    const mongoURI = process.env.MONGO_URL || process.env.MONGODB_URI || 'mongodb://localhost:27017/lezhao-scratch';
     
     console.log('正在连接MongoDB...');
     console.log('MongoDB URI:', mongoURI.replace(/\/\/.*:.*@/, '//***:***@')); // 隐藏密码
