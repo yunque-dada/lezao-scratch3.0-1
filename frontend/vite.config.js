@@ -7,6 +7,11 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     
+    // 允许的host
+    preview: {
+      allowedHosts: ['lezao.up.railway.app', 'lezao-houduan.up.railway.app']
+    },
+    
     // 生产环境优化
     build: {
       // 代码分割
