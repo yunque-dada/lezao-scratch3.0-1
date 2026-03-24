@@ -107,7 +107,7 @@ const UserManagement = () => {
       key: 'role',
       render: (role) => (
         <Tag color={role === 'admin' ? 'red' : role === 'teacher' ? 'blue' : 'green'}>
-          {role === 'admin' ? '管理�? : role === 'teacher' ? '老师' : '学生'}
+          {role === 'admin' ? '管理员' : role === 'teacher' ? '老师' : '学生'}
         </Tag>
       )
     },
