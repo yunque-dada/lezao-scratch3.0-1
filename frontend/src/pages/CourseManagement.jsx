@@ -108,7 +108,7 @@ const CourseManagement = () => {
       key: 'status',
       render: (status) => (
         <Tag color={status === 'published' ? 'green' : 'orange'}>
-          {status === 'published' ? '已发�? : '草稿'}
+          {status === 'published' ? '已发布' : '草稿'}
         </Tag>
       )
     },
