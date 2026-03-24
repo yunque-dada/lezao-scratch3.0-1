@@ -84,10 +84,12 @@ const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.token = action.payload.token;
-        state.user = action.payload.user;
-        localStorage.setItem('token', action.payload.token);
-        localStorage.setItem('user', JSON.stringify(action.payload.user));
+        state.token = action.payload.data?.token;
+        state.user = action.payload.data?.user;
+        if (action.payload.data?.token) {
+          localStorage.setItem('token', action.payload.data.token);
+          localStorage.setItem('user', JSON.stringify(action.payload.data.user));
+        }
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
@@ -100,10 +102,12 @@ const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.token = action.payload.token;
-        state.user = action.payload.user;
-        localStorage.setItem('token', action.payload.token);
-        localStorage.setItem('user', JSON.stringify(action.payload.user));
+        state.token = action.payload.data?.token;
+        state.user = action.payload.data?.user;
+        if (action.payload.data?.token) {
+          localStorage.setItem('token', action.payload.data.token);
+          localStorage.setItem('user', JSON.stringify(action.payload.data.user));
+        }
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
