@@ -1,5 +1,5 @@
 /**
- * Scratch作品编辑器页�? */
+ * Scratch作品编辑器页�? */
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -46,7 +46,7 @@ const ScratchEditorPage = () => {
     setSaving(true);
     try {
       const workData = {
-        title: projectData.projectName || '未命名作�?,
+        title: projectData.projectName || '未命名作品',
         fileUrl: projectData.file || '',
         coverUrl: projectData.cover || '',
         course: null,
@@ -95,7 +95,7 @@ const ScratchEditorPage = () => {
 
   return (
     <div style={{ height: 'calc(100vh - 100px)', display: 'flex', flexDirection: 'column' }}>
-      {/* 顶部工具�?*/}
+      {/* 顶部工具栏 */}
       <Card size="small" style={{ marginBottom: 16 }}>
         <Space>
           <Button icon={<ArrowLeftOutlined />} onClick={() => navigate('/works')}>
@@ -111,12 +111,12 @@ const ScratchEditorPage = () => {
               window.dispatchEvent(event);
             }}
           >
-            {saving ? '保存�?..' : '保存作品'}
+            {saving ? '保存�?..' : '保存作品'}
           </Button>
         </Space>
       </Card>
 
-      {/* Scratch编辑器区�?*/}
+      {/* Scratch编辑器区�?*/}
       <div style={{ flex: 1, overflow: 'hidden' }}>
         <ScratchEditor
           projectId={id}
