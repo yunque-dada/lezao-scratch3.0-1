@@ -51,6 +51,7 @@
 - [2.1.1] ✅ 项目结构搭建 - backend/models/routes/middleware
 - [2.1.2] ✅ 数据库连接 - backend/config/indexes.js
 - [2.1.3] ✅ 认证系统 - JWT/登录/注册/刷新令牌
+- [2.1.4] ✅ API路由 - 统一响应格式/错误处理
 
 ## 二、核心功能开发阶段
 
