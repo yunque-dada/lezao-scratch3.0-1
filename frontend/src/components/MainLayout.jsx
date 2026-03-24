@@ -6,7 +6,7 @@ import { Layout, Menu, Avatar, Dropdown, Button } from 'antd';
 import { 
   DashboardOutlined, 
   BookOutlined, 
-  BookAddOutlined,
+  PlusOutlined,
   FileOutlined, 
   FileAddOutlined,
   UserOutlined,
