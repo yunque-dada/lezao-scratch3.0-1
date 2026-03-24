@@ -8,6 +8,7 @@ import {
   BookOutlined, 
   BookAddOutlined,
   FileOutlined, 
+  FileAddOutlined,
   UserOutlined,
   TeamOutlined,
   LogoutOutlined,
@@ -74,6 +75,11 @@ const MainLayout = ({ children, collapsed, onCollapse }) => {
       key: '/admin/courses',
       icon: <BookAddOutlined />,
       label: <Link to="/admin/courses">课程管理</Link>
+    }] : []),
+    ...(isAdmin || user?.role === 'teacher' ? [{
+      key: '/admin/works',
+      icon: <FileAddOutlined />,
+      label: <Link to="/admin/works">作品管理</Link>
     }] : [])
   ];
 
