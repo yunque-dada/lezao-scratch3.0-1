@@ -4,9 +4,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import authService from '../../services/authService';
 
-// 获取本地存储的token
-const token = localStorage.getItem('token');
-const user = JSON.parse(localStorage.getItem('user') || 'null');
+// 获取本地存储的token（增加错误处理）
+let token = null;
+let user = null;
+
+try {
+  token = localStorage.getItem('token');
+  const userStr = localStorage.getItem('user');
+  if (userStr && userStr !== 'undefined') {
+    user = JSON.parse(userStr);
+  }
+} catch (e) {
+  console.error('读取localStorage失败:', e);
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+}
 
 const initialState = {
   token: token || null,
