@@ -168,7 +168,7 @@ const UserManagement = () => {
         footer={null}
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
-          <Form.Item name="username" label="用户�? rules={[{ required: true }]}>
+          <Form.Item name="username" label="用户名" rules={[{ required: true }]}>
             <Input disabled={!!editingUser} />
           </Form.Item>
           <Form.Item name="email" label="邮箱" rules={[{ required: true, type: 'email' }]}>
