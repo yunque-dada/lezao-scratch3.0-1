@@ -1,8 +1,9 @@
 /**
- * React Router 配置
+ * React Router 配置 - 带布局版本
  */
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import AppLayout from '../components/AppLayout';
 
 // 页面组件
 import Login from '../pages/Login';
@@ -34,11 +35,16 @@ const PublicRoute = ({ children }) => {
   return children;
 };
 
+// 带布局的页面组件
+const LayoutWrapper = ({ children }) => (
+  <AppLayout>{children}</AppLayout>
+);
+
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        {/* 公开路由 */}
+        {/* 公开路由 - 无布局 */}
         <Route 
           path="/login" 
           element={
@@ -48,12 +54,14 @@ const AppRoutes = () => {
           } 
         />
         
-        {/* 受保护路由 */}
+        {/* 受保护路由 - 带布局 */}
         <Route 
           path="/dashboard" 
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <LayoutWrapper>
+                <Dashboard />
+              </LayoutWrapper>
             </ProtectedRoute>
           } 
         />
@@ -61,7 +69,9 @@ const AppRoutes = () => {
           path="/courses" 
           element={
             <ProtectedRoute>
-              <CourseList />
+              <LayoutWrapper>
+                <CourseList />
+              </LayoutWrapper>
             </ProtectedRoute>
           } 
         />
@@ -69,7 +79,9 @@ const AppRoutes = () => {
           path="/courses/:id" 
           element={
             <ProtectedRoute>
-              <CourseDetail />
+              <LayoutWrapper>
+                <CourseDetail />
+              </LayoutWrapper>
             </ProtectedRoute>
           } 
         />
@@ -77,7 +89,9 @@ const AppRoutes = () => {
           path="/works" 
           element={
             <ProtectedRoute>
-              <WorkList />
+              <LayoutWrapper>
+                <WorkList />
+              </LayoutWrapper>
             </ProtectedRoute>
           } 
         />
@@ -85,7 +99,9 @@ const AppRoutes = () => {
           path="/works/:id" 
           element={
             <ProtectedRoute>
-              <WorkEditor />
+              <LayoutWrapper>
+                <WorkEditor />
+              </LayoutWrapper>
             </ProtectedRoute>
           } 
         />
