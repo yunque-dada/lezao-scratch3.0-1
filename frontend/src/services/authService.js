@@ -1,7 +1,9 @@
 /**
  * 认证服务
  */
-const API_URL = 'http://localhost:3000/api/auth';
+import API_CONFIG from '../utils/apiConfig';
+
+const API_URL = API_CONFIG.baseURL + '/api/auth';
 
 // 注册
 const register = async (userData) => {
