@@ -6,6 +6,7 @@ import { Layout, Menu, Avatar, Dropdown, Button } from 'antd';
 import { 
   DashboardOutlined, 
   BookOutlined, 
+  BookAddOutlined,
   FileOutlined, 
   UserOutlined,
   TeamOutlined,
@@ -68,6 +69,11 @@ const MainLayout = ({ children, collapsed, onCollapse }) => {
       key: '/admin/users',
       icon: <TeamOutlined />,
       label: <Link to="/admin/users">用户管理</Link>
+    }] : []),
+    ...(isAdmin || user?.role === 'teacher' ? [{
+      key: '/admin/courses',
+      icon: <BookAddOutlined />,
+      label: <Link to="/admin/courses">课程管理</Link>
     }] : [])
   ];
 

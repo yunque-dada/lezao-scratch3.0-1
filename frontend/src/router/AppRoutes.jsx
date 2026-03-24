@@ -15,6 +15,7 @@ const CourseDetail = lazy(() => import('../pages/CourseDetail'));
 const WorkList = lazy(() => import('../pages/WorkList'));
 const WorkEditor = lazy(() => import('../pages/WorkEditor'));
 const UserManagement = lazy(() => import('../pages/UserManagement'));
+const CourseManagement = lazy(() => import('../pages/CourseManagement'));
 
 // 加载中组件
 const Loading = () => (
@@ -127,6 +128,16 @@ const AppRoutes = () => {
               <ProtectedRoute>
                 <LayoutWrapper>
                   <UserManagement />
+                </LayoutWrapper>
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/courses" 
+            element={
+              <ProtectedRoute>
+                <LayoutWrapper>
+                  <CourseManagement />
                 </LayoutWrapper>
               </ProtectedRoute>
             } 
