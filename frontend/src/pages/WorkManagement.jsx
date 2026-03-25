@@ -98,17 +98,17 @@ const WorkManagement = () => {
 
   const columns = [
     { title: '作品名称', dataIndex: 'title', key: 'title', width: 200 },
-    { title: '作�?, dataIndex: 'user', key: 'user', 
+    { title: '作者', dataIndex: 'user', key: 'user', 
       render: (user) => user?.nickname || user?.username 
     },
     { title: '课程', dataIndex: 'course', key: 'course',
       render: (course) => course?.title || '-'
     },
     { 
-      title: '状�?, dataIndex: 'status', key: 'status',
+      title: '状态', dataIndex: 'status', key: 'status',
       render: (status) => (
         <Tag color={status === 'graded' ? 'green' : 'orange'}>
-          {status === 'graded' ? '已批�? : '待批�?}
+          {status === 'graded' ? '已批改' : '待批改'}
         </Tag>
       )
     },
@@ -170,15 +170,15 @@ const WorkManagement = () => {
             <Row gutter={16}>
               <Col span={12}>
                 <Card title="基本信息">
-                  <p><strong>作品名称�?/strong>{selectedWork.title}</p>
+                  <p><strong>作品名称：</strong>{selectedWork.title}</p>
                   <p><strong>作者：</strong>{selectedWork.user?.nickname || selectedWork.user?.username}</p>
-                  <p><strong>课程�?/strong>{selectedWork.course?.title || '-'}</p>
+                  <p><strong>课程：</strong>{selectedWork.course?.title || '-'}</p>
                   <p><strong>状态：</strong>
                     <Tag color={selectedWork.status === 'graded' ? 'green' : 'orange'}>
-                      {selectedWork.status === 'graded' ? '已批�? : '待批�?}
+                      {selectedWork.status === 'graded' ? '已批改' : '待批改'}
                     </Tag>
                   </p>
-                  <p><strong>得分�?/strong>{selectedWork.score || '-'}</p>
+                  <p><strong>得分：</strong>{selectedWork.score || '-'}</p>
                 </Card>
               </Col>
               <Col span={12}>
@@ -187,7 +187,8 @@ const WorkManagement = () => {
                     <img src={selectedWork.coverUrl} alt={selectedWork.title} style={{ width: '100%' }} />
                   ) : (
                     <div style={{ height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f5f5f5' }}>
-                      暂无预览�?                    </div>
+                      暂无预览
+                    </div>
                   )}
                   <Button type="primary" href={`/works/${selectedWork._id}`} style={{ marginTop: 16 }} block>
                     在编辑器中打开
@@ -211,7 +212,7 @@ const WorkManagement = () => {
             <Rate />
           </Form.Item>
           <Form.Item name="comment" label="评语">
-            <TextArea rows={4} placeholder="请输入评�?.." />
+            <TextArea rows={4} placeholder="请输入评语.." />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" block>
