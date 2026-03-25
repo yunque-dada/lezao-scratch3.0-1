@@ -1,5 +1,6 @@
 /**
- * 课程管理页面 - 老师/管理�? */
+ * 课程管理页面 - 老师/管理员
+ */
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { API_CONFIG } from '../utils/apiConfig';
@@ -112,7 +113,7 @@ const CourseManagement = () => {
         </Tag>
       )
     },
-    { title: '章节�?, dataIndex: 'chapters', key: 'chapters', 
+    { title: '章节', dataIndex: 'chapters', key: 'chapters', 
       render: (chs) => chs?.length || 0 
     },
     { title: '创建时间', dataIndex: 'createdAt', key: 'createdAt', 
@@ -187,10 +188,10 @@ const CourseManagement = () => {
             <Input />
           </Form.Item>
           {editingCourse && (
-            <Form.Item name="status" label="状�?>
+            <Form.Item name="status" label="状态">
               <Select>
                 <Option value="draft">草稿</Option>
-                <Option value="published">已发�?/Option>
+                <Option value="published">已发布</Option>
               </Select>
             </Form.Item>
           )}
