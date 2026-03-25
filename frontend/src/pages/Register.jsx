@@ -117,7 +117,7 @@ const Register = () => {
           </Form.Item>
           
           <div style={{ textAlign: 'center' }}>
-            已有账户？ <Link to="/login">立即登录</Link>
+            已有账户？<Link to="/login">立即登录</Link>
           </div>
         </Form>
       </Card>
